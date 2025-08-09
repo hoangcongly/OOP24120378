@@ -3,6 +3,7 @@
         "*.dbclient-js": "javascript",
         "istream": "cpp",
         "iostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "xstring": "cpp"
     }
 }
