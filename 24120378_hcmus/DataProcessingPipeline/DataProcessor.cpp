@@ -48,6 +48,10 @@ void DataProcessor:: clearChain()
 {
     chain.clear();
 }
+void DataProcessor:: removeFromChain(const string&filterName)
+{
+    chain.erase(remove(chain.begin(), chain.end(), filterName), chain.end());
+}
 void DataProcessor:: listChain() const
 {
     cout << "Current processing chain: " << endl;
