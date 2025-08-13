@@ -147,26 +147,32 @@ int main() {
                 cout << "Dang ky filter co tham so:\n";
                 cout << " a) MultiplyBy <factor>\n b) Clamp <min> <max>\nLua chon (a/b): ";
                 char c; cin >> c; getline(cin, dummy);
-                if (c == 'a') {
+                if (c == 'a') 
+                {
                     cout << "Nhap factor (so nguyen): ";
                     int factor; cin >> factor; getline(cin, dummy);
                     string name = "MultiplyBy_" + to_string(factor);
-                    dp->registerFilter(name, [factor](vector<int>& arr) {
+                    dp->registerFilter(name, [factor](vector<int>& arr) 
+                    {
                         for (auto &x : arr) x *= factor;
                     });
                     cout << "Dang ky filter: " << name << "\n";
-                } else if (c == 'b') {
+                } else if (c == 'b') 
+                {
                     cout << "Nhap min va max (cach nhau boi khoang trang): ";
                     int lo, hi; cin >> lo >> hi; getline(cin, dummy);
                     string name = "Clamp_" + to_string(lo) + "_" + to_string(hi);
                     dp->registerFilter(name, [lo, hi](vector<int>& arr) {
-                        for (auto &x : arr) {
+                        for (auto &x : arr) 
+                        {
                             if (x < lo) x = lo;
                             if (x > hi) x = hi;
                         }
                     });
                     cout << "Dang ky filter: " << name << "\n";
-                } else {
+                } 
+                else 
+                {
                     cout << "Lua chon khong hop le.\n";
                 }
                 break;
