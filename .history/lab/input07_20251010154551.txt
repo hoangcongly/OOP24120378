@@ -1,0 +1,9 @@
+B780124159730, Computer Animation: Algorithms and Techniques, Rick Parent, 5, Morgan 
+Kaufmann, Third Edition, 12/12/2012 
+T409114017, Crowdsourcing on web, Maeve Binchey, 3, University of Science, Information 
+Technology, 08/11/2012 
+P7684467, The Rise of Crowdsourcing, Howe, 2, Wired Magazine, 01/12/2006 
+B880512397833, Clean Code, Robert C. Martin, 7, Prentice Hall, 1st Edition, 01/08/2008 
+T709512301, Deep Learning Research, Ian Goodfellow, 4, MIT, Computer Science, 22/05/2019 
+P1234567, Attention Is All You Need, Vaswani, 10, NeurIPS, 01/12/2017 
+B999923847723, Introduction to Algorithms, Cormen, 8, MIT Press, 4th Edition, 01/01/2022 

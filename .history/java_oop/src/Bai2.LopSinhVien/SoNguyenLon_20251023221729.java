@@ -1,0 +1,108 @@
+import java.io.StringBufferInputStream;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.stream.Collectors;
+
+public class SoNguyenLon {
+    private String digit;
+
+    public SoNguyenLon() {
+        this.digit = "0";
+    }
+
+    public SoNguyenLon(String str) {
+        if (str == null || str.isEmpty() || str.matches("\\d+")) {
+            this.digit = "0";
+        } else {
+            this.digit = str.replaceFirst("^0(?!$)", "");
+            if (this.digit.isEmpty()) {
+                this.digit = "0";
+            }
+        }
+    }
+
+    public SoNguyenLon(int num1, int num2) {
+        if (num1 < 0 || num1 > 9) {
+            this.digit = "0";
+        }
+        if (num2 <= 0) {
+            this.digit = "0";
+        } else {
+            char digit = (char) (num1 + '0');
+            char[] chars = new char[num2];
+            Arrays.fill(chars, digit);
+            this.digit = new String(chars).replaceFirst("^0(?!$)", "");
+            if (this.digit.isEmpty()) {
+                this.digit = "0";
+            }
+        }
+    }
+
+    public int compare(SoNguyenLon other) {
+        if (this.digit.length() > other.digit.length())
+            return 1;
+        if (this.digit.length() < other.digit.length())
+            return -1;
+        return this.digit.compareTo(other.digit);
+    }
+
+    public SoNguyenLon cong(SoNguyenLon other) {
+        String s1 = this.digit;
+        String s2 = other.digit;
+
+        String rs1 = new StringBuilder(s1).reverse().toString();
+        String rs2 = new StringBuilder(s2).reverse().toString();
+
+        StringBuilder result = new StringBuilder();
+        int carry = 0;
+        int n = Math.max(s1.length(), s2.length());
+        for (int i = 0; i < n || carry != 0; i++) {
+            int digit1 = (i < rs1.length()) ? (rs1.charAt(i) - '0') : 0;
+            int digit2 = (i < rs2.length()) ? (rs2.charAt(i) - '0') : 0;
+            int sum = digit1 + digit2 + carry;
+            result.append(sum % 10);
+            carry = sum / 10;
+        }
+        return new SoNguyenLon(result.reverse().toString());
+    }
+
+    public SoNguyenLon cong(long num) {
+        SoNguyenLon snl_num = new SoNguyenLon(String.valueOf(num));
+        return this.cong(snl_num);
+    }
+
+    public SoNguyenLon tru(SoNguyenLon other) {
+        if (this.compare(other) < 0) {
+            return new SoNguyenLon("0");
+        }
+        String s1 = this.digit;
+        String s2 = other.digit;
+
+        String rs1 = new StringBuilder(s1).reverse().toString();
+        String rs2 = new StringBuilder(s2).reverse().toString();
+
+        StringBuilder result = new StringBuilder();
+        int borrow = 0;
+        int n = s1.length();
+        for (int i = 0; i < n; i++) {
+            int digit1 = rs1.charAt(i) - '0';
+            int digit2 = (i < rs2.length()) ? (rs2.charAt(i) - '0') : 0;
+
+            int diff = digit1 - digit2 - borrow;
+
+            if (diff < 0) {
+                diff += 10;
+                borrow = 1;
+            } else {
+                borrow = 0;
+            }
+            result.append(diff);
+        }
+        return new SoNguyenLon(result.reverse().toString());
+    }
+
+    public static SoNguyenLon hieuVoiHangSo(long num, SoNguyenLon snl) {
+        SoNguyenLon num_snl = new SoNguyenLon(String.valueOf(num));
+        return num_snl.tru(snl);
+    }
+}

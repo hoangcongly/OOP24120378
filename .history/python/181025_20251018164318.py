@@ -1,0 +1,1 @@
+print("Môi trường VS Code đã sẵn sàng!")

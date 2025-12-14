@@ -1,0 +1,10 @@
+THUNG_SON_A
+3
+DON SonDo 5 40 60
+DAC SonDac1 2
+DON SonXanh 3 30 70
+DON SonVang 2 50 50
+LONG SonLong1 1
+DAC SonDac2 2
+DON SonTrang 4 20 80
+DON SonDen 1 60 40

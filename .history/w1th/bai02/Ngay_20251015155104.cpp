@@ -1,0 +1,58 @@
+#include "Ngay.h"
+
+void Ngay:: ChuanHoa()
+{
+    _ng= abs(_ng);
+    _th= abs(_th);
+    _n= abs(_n);
+    int thangDu= (_ng-1)/30;
+    _ng= (_ng-1)%30+1;
+    _th+=thangDu;
+    int namDu= (_th-1)/12;
+    _th=(_th-1)%12+1;
+    _n+=namDu;
+}
+Ngay:: Ngay()
+{
+    _ng=_th=_n=1;
+}
+Ngay:: Ngay(const int& x)
+{
+    _ng=abs(x);
+    _th=_n=1;
+    ChuanHoa();
+}
+Ngay:: Ngay(const int&ng, const int& th, const int& n)
+{
+    _ng= abs(ng);
+    _th= abs(th);
+    _n= abs(n);
+    ChuanHoa();
+}
+Ngay:: Ngay(const char*s)
+{
+    int len= strlen(s);
+    char *sTemp= new char[len+1];
+    strcpy_s(sTemp, len+1, s);
+    const char* delimiters = "-/";
+    char*temp;
+    char*sCur= strtok_s(sTemp, delimiters, &temp);
+    _ng= atoi(sCur);
+    if(sCur)
+    {
+        sCur= strtok_s(nullptr, delimiters, &temp);
+        _th= atoi(sCur);
+    }
+    if(sCur)
+    {
+        sCur= strtok_s(nullptr, delimiters, &temp);
+        _n= atoi(sCur);
+    }
+    delete [] sTemp;
+    ChuanHoa();
+}
+Ngay:: ~Ngay() {};
+void Ngay:: Xuat()
+{
+    cout << _ng << "/" << _th << "/" << _n;
+}

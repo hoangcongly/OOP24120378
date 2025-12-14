@@ -1,0 +1,87 @@
+#ifndef PIECE_H
+#define PIECE_H
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <SFML/Graphics.hpp>
+#include "pieceTextures.h"
+
+class Piece: public sf::Drawable
+{
+private:
+    sf::Sprite m_sprite;
+    std::vector<int> possibleMoves;
+    std::vector<int> dangerMoves;
+
+    char m_type;
+    bool m_player;
+    int m_position;
+    int enPassant;
+    bool m_moved;
+
+    void setTexture();
+    void move();
+    virtual void draw(sf::RenderTarget&target, sf:: RenderStates states) const
+    {
+        target.draw(m_sprite);
+    }
+public:
+    Piece(char type='P', bool player=true, int pos=-1, bool moved=false)
+    : m_type{type}, m_player{player},m_position{pos}, m_moved{moved},enPassant{-1} { }
+    void setPiece(char type, bool player, int pos, bool moved=false);
+    void setType(char ch)
+    {
+        m_type=ch;
+        setTexture();
+    }
+    char getType()
+    {
+        return m_type;
+    }
+    void setPlayer(bool bl)
+    {
+        m_player= bl;
+        setTexture();
+    }
+    bool getPlayer()
+    {
+        return m_player;
+    }
+    void setPosition(int pos)
+    {
+        m_position=pos;
+        move();
+    }
+    int getPosition()
+    {
+        return m_position;
+    }
+    void setMoved(bool moved)
+    {
+        m_moved=moved;
+    }
+    bool getMoved()
+    {
+        return m_moved;
+    }
+    void setEnPassant(int x)
+    {
+        enPassant=x;
+    }
+    int getEnPassant()
+    {
+        return enPassant;
+    }
+    std:: vector<int>& getPossibleMoves()
+    {
+        return possibleMoves;
+    }
+    std:: vector<int>&getDangerMoves()
+    {
+        return dangerMoves;
+    }
+    std:: string toString();
+};
+
+#endif //PIECE_H

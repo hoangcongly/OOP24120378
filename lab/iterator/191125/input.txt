@@ -1,0 +1,15 @@
+CREATE Users
+INSERT Users 1
+PUSH Users 1 5
+PUSH Users 1 8
+PUSH Users 1 10
+
+INSERT Users 2
+PUSH Users 2 7
+
+PRINT Users 1
+PRINT Users 2
+PRINT_TABLE Users
+
+DELETE Users 1
+PRINT_TABLE Users
