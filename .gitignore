@@ -1,0 +1,64 @@
+# Visual Studio temporary files, build results, and
+# user-specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Compiled object files and binaries
+*.exe
+*.dll
+*.obj
+*.o
+*.a
+*.lib
+*.out
+
+# Build folders
+bin/
+build/
+dist/
+Debug/
+Release/
+
+# JetBrains IDEs
+.idea/
+
+# VS Code settings
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+
+# Archives and packages
+*.zip
+*.tar.gz
+*.7z
+
+# Large / local history and editor backups
+.history/
+*.log
+
+# Windows thumbnail cache, etc.
+Thumbs.db
+
+# Ignore executables and build artifacts often produced in workspace
+*.exe
+*.out
+*.class
