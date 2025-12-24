@@ -1,6 +1,19 @@
+# build
 *.exe
 *.out
 a.out
-.history/
+
+# editor
 .vscode/
 .vs/
+
+# history & cache
+.history/
+__pycache__/
+
+# binaries & libs
+*.dll
+*.so
+
+# test & temp
+test/
